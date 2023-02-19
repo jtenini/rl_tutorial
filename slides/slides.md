@@ -59,7 +59,7 @@ Applied Machine Learning - DSBA - UNC Charlotte
 
 # Exciting trophies :trophy:
 
-- [OpenAI Five plaing Dota 2](https://openai.com/five/) :mage:
+- [OpenAI Five playing Dota 2](https://openai.com/five/) :mage:
 	- 2019, OpenAI, Berner et al
 	- 10,000 years of gameplay (10 months of real training).
 	- Proximal Policy Optimization
@@ -137,6 +137,66 @@ Practical advice:
 
 - Instead of choosing each option with probability $1/k\epsilon \dots$
 - Choose each option with probability 
-$$\frac{1}{\mu - \gamma (q(x,a^*)-q(x,a))}$$
+$$\frac{1}{\mu - \gamma (q(x,a_{best})-q(x,a))}$$
 
 ---
+
+# Interesting bandit complications
+
+1. Debiasing data (wrto actions).
+2. Evaluating policies (OPE).
+3. Dynamic environments (forgetting).
+4. Dynamic actions spaces (new actions).
+5. Hyperparameter tuning (simulation).
+
+---
+
+# Beyond Bandits - MDPs
+
+A Markov Decision Process (MDP) is 4 things:
+1. A set of states $S$.
+2. For each state $s$, a set of actions $A(s)$.
+3. For each state $s$ and action $a$, a distribution on the state space $S$ - $P(s' | s,a)$ [transition probabilities].
+4. For each state $s$ and action $a$, a distribution on $\mathbb{R}$ - $P(r | s,a)$ [reward distribution].
+
+---
+
+# What do we do with MDPs?
+
+We design agents!
+
+---
+
+# What is a agent?
+
+For each $s \in S$, a distribution on the available actions $\pi(A(s))$.
+
+By sampling agents, we generate a trajectory - $s_1, a_1, r_1, s_2, \dots$.
+We want an agent that maximizes _return_ - $\mathbb{E}(\sum r)$ over the trajectory.
+
+---
+
+# Example MDP
+
+![An MDP](mdp.png "An MDP")
+
+
+---
+
+# MPD vs Bandit
+
+A bandit problem is an MDP with length 1 trajectories.
+
+- Strategy vs Tactics
+- Return vs Reward
+
+---
+
+# Example business problem - sequential interactions.
+
+Imagine you send a weekly email that can be informational or transactional. Informational emails increase a user's baseline propensity to transact, while transactional emails can give users a momentary boost in propensity to transact, but with a risk that they may unsubscribe.
+
+What type of email do you send each week?
+What if these dynamics vary user to user?
+
+--- 
