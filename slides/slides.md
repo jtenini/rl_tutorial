@@ -26,17 +26,6 @@ Applied Machine Learning - DSBA - UNC Charlotte
 
 ---
 
-# Detailed agenda
-
-- Why you should care.
-	- Some amazing headlines / Everyone is doing bandits
-- How it works.
-	- MDP framework / policies / regret
-- How you should invest.
-	- Bandits / simulation / q-learning
-
----
-
 # Why should I care about RL?
 
 - Exciting RL Trophies :trophy: and examples :octopus:
@@ -130,5 +119,24 @@ Goal: Maximize $\sum r$.
 ---
 
 # Demo 1 - bandits
+
+---
+
+# Can we do better than epsilon greedy?
+
+Practical advice:
+1. It will depend on your environment.
+2. For most environments, it's particularly difficult.
+3. Often you'll introduce additional parameters that are hard to tune in practice.
+
+---
+
+# Can we do better than epsilon greedy?
+
+[SquareCB](https://arxiv.org/pdf/2002.04926.pdf) is a nice option:
+
+- Instead of choosing each option with probability $1/k\epsilon \dots$
+- Choose each option with probability 
+$$\frac{1}{\mu - \gamma (q(x,a^*)-q(x,a))}$$
 
 ---
