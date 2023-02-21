@@ -137,7 +137,7 @@ Practical advice:
 
 - Instead of choosing each option with probability $1/k\epsilon \dots$
 - Choose each option with probability 
-$$\frac{1}{\mu - \gamma (q(x,a_{best})-q(x,a))}$$
+$$\frac{1}{\mu + \gamma (q(x,a_{best})-q(x,a))}$$
 
 ---
 
@@ -148,6 +148,10 @@ $$\frac{1}{\mu - \gamma (q(x,a_{best})-q(x,a))}$$
 3. Dynamic environments (forgetting).
 4. Dynamic actions spaces (new actions).
 5. Hyperparameter tuning (simulation).
+
+---
+
+# MAB -> CMAB -> ?
 
 ---
 
@@ -189,6 +193,7 @@ A bandit problem is an MDP with length 1 trajectories.
 
 - Strategy vs Tactics
 - Return vs Reward
+- Sample complexity / Cumulative Regret vs Optimality
 
 ---
 
@@ -200,3 +205,25 @@ What type of email do you send each week?
 What if these dynamics vary user to user?
 
 --- 
+
+# Demo 2 - MDPs
+
+---
+
+# What is the 80% solution?
+
+1. Reduce to bandit case (with small policy set).
+2. Tabular Q-Learning.
+3. Q-learning with function approximation.
+
+--- 
+
+# What is Q-Learning?
+
+Q-learning centers around learning and leveraging a "Q function" - $Q_{\pi}(x, a)$, which estimates the expected return of being in state $x$, taking action $a$, and then following policy $\pi$ thereafter. Put sloppily, $Q_{\pi}(x, a) = \mathbb{E}(\sum r | x, a, \pi)$.
+
+---
+
+# What is Q-Learning?
+
+---
