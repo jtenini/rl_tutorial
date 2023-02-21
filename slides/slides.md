@@ -15,6 +15,7 @@ https://github.com/jtenini/rl_tutorial
 Joe Tenini, PhD
 Principal Data Scientist - Red Ventures
 Applied Machine Learning - DSBA - UNC Charlotte
+Medium - [https://medium.com/@jtenini](https://medium.com/@jtenini)
 
 ---
 
@@ -151,6 +152,14 @@ $$\frac{1}{\mu + \gamma (q(x,a_{best})-q(x,a))}$$
 
 ---
 
+# Some interesting examples
+
+1. Booking talking about their bandit simulation platform. [link](https://arxiv.org/abs/2209.04147)
+2. Netflix personalizing title artwork. [link](https://netflixtechblog.com/artwork-personalization-c589f074ad76)
+3. Red Ventures talking about MAB. [link](https://medium.com/rv-data/how-to-make-good-decisions-5aabdd997509)
+
+---
+
 # MAB -> CMAB -> ?
 
 ---
@@ -193,7 +202,7 @@ A bandit problem is an MDP with length 1 trajectories.
 
 - Strategy vs Tactics
 - Return vs Reward
-- Sample complexity / Cumulative Regret vs Optimality
+- Regret bounds vs PAC bounds
 
 ---
 
@@ -210,7 +219,7 @@ What if these dynamics vary user to user?
 
 ---
 
-# What is the 80% solution?
+# What are the 80% solutions?
 
 1. Reduce to bandit case (with small policy set).
 2. Tabular Q-Learning.
@@ -225,5 +234,36 @@ Q-learning centers around learning and leveraging a "Q function" - $Q_{\pi}(x, a
 ---
 
 # What is Q-Learning?
+
+Q-learning gives us a way to learn $Q'$ - the Q-function associated to an optimal policy. With this in hand, we can behave (mostly) greedily on $Q'$. That is, choose your action to be: $\hat{a} = \arg \max_a Q'(x, a)$.
+
+---
+
+# What is Q-Learning?
+
+![Q-Learning Algorithm](qlearning.png "The Q-Learning Algorithm")
+
+---
+
+# Can we do it with function approximation?
+
+Idea: Yes, use gradient descent instead of a tabular update:
+- Take action $a$.
+- Recieve next state $s'$ and reward $r$.
+- Update model parameter $\theta$ in the direction of:
+
+$-\nabla_{\theta}(Q(s, a) - r - \max_{a'}Q(s',a'))^2
+
+---
+
+# Do people actually do this?
+
+1. YouTube using (slate-level) Q-Learning. [link](https://arxiv.org/pdf/1905.12767.pdf)
+2. TaoBao building an MDP twin of its ecommerce site. [link](https://arxiv.org/pdf/1805.10000.pdf)
+3. Building educational games that keep users engaged. [link](http://grail.cs.washington.edu/projects/ordering/orderingpaperExtended.pdf)
+
+---
+
+# Thank you very much!
 
 ---
