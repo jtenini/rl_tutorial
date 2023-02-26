@@ -252,7 +252,7 @@ Idea: Yes, use gradient descent instead of a tabular update:
 - Recieve next state $s'$ and reward $r$.
 - Update model parameter $\theta$ in the direction of:
 
-$-\nabla_{\theta}(Q(s, a) - r - \max_{a'}Q(s',a'))^2
+$-\nabla_{\theta}(Q(s, a) - r - \max_{a'}Q(s',a'))^2$
 
 ---
 
